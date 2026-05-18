@@ -134,8 +134,11 @@
                 <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Pricing</a>
             </nav>
 
-            <div>
-                <button onclick="openBookingModal()" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-brand-600 to-indigo-500 group-hover:from-brand-600 group-hover:to-indigo-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-800 transition-all duration-300">
+            <div class="flex items-center space-x-3">
+                <a href="http://localhost:5000" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:text-white text-xs font-bold transition-all shadow-md">
+                    <span>🚀 Launch Product</span>
+                </a>
+                <button onclick="openBookingModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-brand-600 to-indigo-500 group-hover:from-brand-600 group-hover:to-indigo-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-800 transition-all duration-300">
                     <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-dark-950 rounded-md group-hover:bg-opacity-0">
                         Book Demo
                     </span>
@@ -164,12 +167,15 @@
                         Turn DMs, website forms, and unanswered phone lines into instant, booking-assistant conversations. Capture every single hot lead automatically before they click to your competitor.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
-                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-base transition-all duration-300 shadow-lg shadow-brand-500/20 transform hover:-translate-y-0.5">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 pt-4">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-brand-500/20 transform hover:-translate-y-0.5">
                             Audit My Business (Free)
                         </button>
-                        <a href="#testdrive" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 font-semibold text-base text-center transition-all duration-300">
+                        <a href="#testdrive" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 font-semibold text-sm text-center transition-all duration-300">
                             Test Sandbox
+                        </a>
+                        <a href="http://localhost:5000" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 to-indigo-500/10 hover:from-emerald-500/25 hover:to-indigo-500/25 text-white border border-indigo-500/35 font-semibold text-sm text-center transition-all duration-300 shadow-lg shadow-indigo-600/10">
+                            🚀 Launch Product Demo
                         </a>
                     </div>
 
