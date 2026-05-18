@@ -136,7 +136,7 @@
 
             <div class="flex items-center space-x-4">
                 <div class="hidden sm:flex flex-col items-center">
-                    <a href="http://localhost:5000" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:text-white text-xs font-bold transition-all shadow-md">
+                    <a href="demo.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:text-white text-xs font-bold transition-all shadow-md">
                         <span>Explore Prototype</span>
                     </a>
                     <span class="text-[9px] text-slate-500 mt-1 tracking-wide">Uses sample data</span>
@@ -178,7 +178,7 @@
                             Test Sandbox
                         </a>
                         <div class="flex flex-col items-center w-full sm:w-auto">
-                            <a href="http://localhost:5000" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 to-indigo-500/10 hover:from-emerald-500/25 hover:to-indigo-500/25 text-white border border-indigo-500/35 font-semibold text-sm text-center transition-all duration-300 shadow-lg shadow-indigo-600/10">
+                            <a href="demo.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 to-indigo-500/10 hover:from-emerald-500/25 hover:to-indigo-500/25 text-white border border-indigo-500/35 font-semibold text-sm text-center transition-all duration-300 shadow-lg shadow-indigo-600/10">
                                 Explore Prototype Demo
                             </a>
                             <span class="text-[10px] text-slate-500 mt-1.5 font-medium tracking-wide">
@@ -1260,8 +1260,8 @@ Conversation Directives:
                     tier: tier.includes('Tier 3') ? 'tier3' : 'tier2'
                 });
                 
-                // Redirect to active local middleware demo board on port 5000 passing all custom values
-                window.location.href = `http://localhost:5000/?${queryParams.toString()}`;
+                // Redirect to active demo board passing all custom values
+                window.location.href = `demo.html?${queryParams.toString()}`;
             }, 1200);
         }
 

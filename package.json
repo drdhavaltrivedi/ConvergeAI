@@ -6,7 +6,7 @@
     "dev": "npm --prefix server run dev",
     "start": "npm --prefix server start",
     "build": "npm --prefix server run build",
-    "vercel-build": "mkdir -p public && cp -r index.html assets robots.txt sitemap.xml llms.txt public/",
+    "vercel-build": "mkdir -p public && cp -r index.html demo.html assets robots.txt sitemap.xml llms.txt public/",
     "install:server": "npm --prefix server install"
   },
   "keywords": [
