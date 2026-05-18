@@ -315,6 +315,36 @@ app.get('/', (_req, res) => {
             let currentRep = "Sarah";
             let currentNiche = "cosmetic";
 
+            // On Page Load: Capture lead query details redirected from the main landing page!
+            window.addEventListener('DOMContentLoaded', () => {
+                const params = new URLSearchParams(window.location.search);
+                if (params.has('fname') && params.has('phone')) {
+                    // Pre-fill Form Webhook simulation fields
+                    document.getElementById('form-fname').value = params.get('fname');
+                    document.getElementById('form-lname').value = params.get('lname') || 'Smith';
+                    document.getElementById('form-phone').value = params.get('phone');
+                    document.getElementById('form-email').value = params.get('email') || 'jane.smith@gmail.com';
+                    document.getElementById('form-biz').value = params.get('biz') || 'Orion Aesthetics Clinic';
+                    
+                    // Pre-fill Missed Call simulation fields
+                    document.getElementById('call-fname').value = params.get('fname');
+                    document.getElementById('call-phone').value = params.get('phone');
+                    document.getElementById('call-biz').value = params.get('biz') || 'Orion Aesthetics Clinic';
+                    
+                    if (params.get('niche')) {
+                        document.getElementById('call-niche').value = params.get('niche');
+                    }
+                    if (params.get('tier')) {
+                        document.getElementById('call-tier').value = params.get('tier');
+                    }
+
+                    // Automatically execute the form submit webhook trigger!
+                    setTimeout(() => {
+                        triggerFormWebhook();
+                    }, 800);
+                }
+            });
+
             // Tab toggler
             function switchFormTab(tab) {
                 const btnForm = document.getElementById('btn-tab-form');

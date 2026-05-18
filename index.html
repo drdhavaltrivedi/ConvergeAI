@@ -1234,12 +1234,24 @@ Conversation Directives:
             submitBtn.disabled = true;
             submitBtn.textContent = "Connecting to GHL Webhook...";
 
-            // Simulate server network lag for realism, then trigger success alerts
+            // Simulate server network lag for realism, then redirect to local demo console on port 5000
             setTimeout(() => {
                 submitBtn.classList.add('hidden');
                 successAlert.classList.remove('hidden');
                 
-                // Keep modal open so they can read GHL pipeline trigger success details
+                // Serialize lead details into URL Query Parameters for the Demo Console
+                const queryParams = new URLSearchParams({
+                    fname: name.split(' ')[0] || 'Jane',
+                    lname: name.split(' ').slice(1).join(' ') || 'Smith',
+                    phone: phone || '+1 (555) 304-5820',
+                    email: email || 'jane.smith@gmail.com',
+                    biz: biz || 'Orion Aesthetics Clinic',
+                    niche: niche || 'cosmetic',
+                    tier: tier.includes('Tier 3') ? 'tier3' : 'tier2'
+                });
+                
+                // Redirect to active local middleware demo board on port 5000 passing all custom values
+                window.location.href = `http://localhost:5000/?${queryParams.toString()}`;
             }, 1200);
         }
 
