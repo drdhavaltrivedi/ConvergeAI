@@ -1,0 +1,68 @@
+# ConvergeAI: Autonomous Customer Acquisition & Lead Nurturing Engine
+
+ConvergeAI is a production-grade, type-safe integration middleware and front-desk automation platform designed to solve the "Speed-to-Lead" problem for local service businesses. It instantly captures unanswered inbound calls, website forms, and DMs, converting them into confirmed calendar bookings using advanced conversational AI and voice receptionist backends.
+
+## Core Features & Offerings
+- **Speed-to-Lead Automation**: Instantly responds to missed calls and inbound requests within 15 seconds to maximize lead conversion probability.
+- **Tier 2 - Conversational SMS Nurturing**: Specialised text-back agents that converse with prospects, answer customer inquiries, and secure calendar bookings.
+- **Tier 3 - DFY Voice Receptionists**: Outbound synthetic call-backs (powered by Vapi.ai) triggered instantly upon a prospect hitting voicemail, guiding them through qualifications and appointment bookings.
+- **GoHighLevel (GHL) CRM Integration**: Seamless multi-tenant sync covering lead creation, CRM card opportunities, call transcript notes, and appointment confirmations.
+
+## Pricing Tiers
+- **Tier 1 (Core Speed-to-Lead voicemail text-backs)**: $100 / month.
+- **Tier 2 (Conversational SMS Nurturing & AI Follow-ups)**: $250 / month.
+- **Tier 3 (Full Outbound AI Voice Receptionist Dispatchers)**: $1,000+ / month (BYOT - Bring Your Own Twilio trunking, plus $0.28 per-call average usage).
+
+## Middleware Technical Route Specifications
+All endpoints accept JSON payloads and handle dynamic niche routing (Aesthetic, Dental, HVAC, Real Estate).
+
+### 1. Inbound Web Form Submit Webhook
+- **Route**: `POST /api/webhooks/ghl/form`
+- **Purpose**: Creates an active GHL Contact and creates a card in the "New Lead Inflow" CRM stage.
+- **Expected Payload**:
+  ```json
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "phone": "+15553045820",
+    "email": "jane.smith@gmail.com",
+    "businessName": "Orion Aesthetics Clinic"
+  }
+  ```
+
+### 2. Inbound Missed Call Webhook
+- **Route**: `POST /api/webhooks/ghl/missed-call`
+- **Purpose**: Triggers when a caller hangs up or hits voicemail. Dispatches Tier 2 (SMS) or Tier 3 (Voice Outbound call-back) depending on configured tier.
+- **Expected Payload**:
+  ```json
+  {
+    "firstName": "Alex",
+    "phone": "+15557892041",
+    "niche": "cosmetic",
+    "tier": "tier2",
+    "businessName": "Apex Emergency HVAC"
+  }
+  ```
+
+### 3. SMS Nurture Webhook
+- **Route**: `POST /api/webhooks/ghl/sms`
+- **Purpose**: Evaluates conversation threads, parses customer booking intents using system prompts, and replies dynamically.
+- **Expected Payload**:
+  ```json
+  {
+    "phone": "+15557892041",
+    "message": "Hi, I want to book Botox",
+    "firstName": "Alex",
+    "businessName": "Apex Emergency HVAC",
+    "representativeName": "Sarah",
+    "niche": "cosmetic"
+  }
+  ```
+
+### 4. Vapi.ai Voice Callback Endpoint
+- **Route**: `POST /api/webhooks/vapi`
+- **Purpose**: Receives structured transcripts and call diagnostics at call-end. Attaches full conversation summaries to GHL contact notes and pushes cards to final "Booked" pipelines.
+- **Expected Payload**: End-of-call Webhook diagnostic records.
+
+## Production Status
+The platform runs a beautiful interactive dashboard demo console at `http://localhost:5000` with mock capabilities fully integrated, requiring zero active OpenAI or GHL keys to showcase features.

@@ -4,6 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConvergeAI | Turn Missed Calls Into Booked Appointments on Autopilot</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ConvergeAI is an autonomous lead nurturing & customer acquisition engine. Instantly convert missed calls, website forms, and DMs into booked sales appointments on your calendar automatically 24/7.">
+    <meta name="keywords" content="convergeai, lead nurturing, speed to lead, voice receptionist, missed call text back, AI front desk, gohighlevel automation, vapi integration, lead conversion, local business automation">
+    <link rel="canonical" href="https://converge-ai-nu.vercel.app">
+
+    <!-- OpenGraph Social Metadata (SEO/AEO/GEO Preview) -->
+    <meta property="og:title" content="ConvergeAI | Turn Missed Calls Into Booked Appointments on Autopilot">
+    <meta property="og:description" content="ConvergeAI is an autonomous lead nurturing & customer acquisition engine. Instantly convert missed calls, forms, and DMs into booked sales appointments automatically.">
+    <meta property="og:image" content="https://converge-ai-nu.vercel.app/assets/logo.png">
+    <meta property="og:url" content="https://converge-ai-nu.vercel.app">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Preview Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ConvergeAI | Autonomous AI Lead Nurturer">
+    <meta name="twitter:description" content="Instantly text-back missed calls and dispatch automated voice receptionists to book clients on your calendar 24/7.">
+    <meta name="twitter:image" content="https://converge-ai-nu.vercel.app/assets/logo.png">
+
+    <!-- JSON-LD Structured Schema Script (AEO/GEO & Search Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ConvergeAI",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "description": "Autonomous AI-driven customer acquisition and lead nurturing middleware that converts missed calls, DMs, and forms into confirmed calendar appointments.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "100",
+        "highPrice": "1000",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    }
+    </script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -80,11 +122,7 @@
     <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-950/70 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
-                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
+                <img src="assets/logo.png" alt="ConvergeAI Logo" class="h-10 w-10 object-contain rounded-xl shadow-lg shadow-brand-500/10">
                 <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-300 bg-clip-text text-transparent">ConvergeAI</span>
             </div>
             
@@ -207,7 +245,7 @@
                 <span class="text-xs uppercase tracking-widest text-brand-400 font-extrabold">Instant Personalization</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Generate Your Custom AI Script</h2>
                 <p class="text-base text-slate-400">
-                    Enter your details to generate a highly tailored missed-call text back and voice agent prompt customized for your exact industry. Powered live by <span class="text-brand-400 font-semibold">Gemini 2.5 Flash</span>.
+                    Enter your details to generate a highly tailored missed-call text back and voice agent prompt customized for your exact industry. Powered live by our specialized prompt synthesis engine.
                 </p>
             </div>
 
@@ -221,17 +259,16 @@
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Industry Niche</label>
-                        <select id="bp-biz-niche" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+                        <select id="bp-biz-niche" onchange="updateNichePersonality()" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
                             <option value="Cosmetic Clinic / Medical Spa">Cosmetic Clinic / Medical Spa</option>
-                            <option value="Dental Practice">Dental Practice</option>
+                            <option value="Dental Practice" selected>Dental Practice</option>
                             <option value="HVAC / Plumbing Repair">HVAC / Plumbing Repair</option>
                             <option value="Real Estate Agency">Real Estate Agency</option>
-                            <option value="General Professional Services">General Professional Services</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Your Name</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Owner / Lead Representative Name</label>
                         <input type="text" id="bp-user-name" placeholder="e.g., Dr. Trivedi" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
                     </div>
 
@@ -245,8 +282,8 @@
                 </div>
 
                 <!-- Results Output Side -->
-                <div class="lg:col-span-7 card-glow rounded-3xl p-6 relative min-h-[400px] flex flex-col justify-between">
-                    <div id="blueprint-placeholder-state" class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center space-y-4">
+                <div class="lg:col-span-7 card-glow rounded-3xl p-6 relative min-h-[460px] flex flex-col justify-between">
+                    <div id="blueprint-placeholder-state" class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center space-y-4 z-10">
                         <div class="h-16 w-16 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-400">
                             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -258,7 +295,7 @@
                         </p>
                     </div>
 
-                    <div id="blueprint-result-state" class="hidden space-y-6">
+                    <div id="blueprint-result-state" class="hidden space-y-6 z-20">
                         <div class="flex items-center justify-between border-b border-white/5 pb-3">
                             <span class="text-xs uppercase tracking-widest text-brand-400 font-extrabold" id="bp-badge-niche">DENTAL PRACTICE</span>
                             <span class="text-xs text-slate-500">Constructed Live</span>
@@ -266,10 +303,15 @@
 
                         <!-- Panel 1 -->
                         <div class="space-y-2">
-                            <h4 class="text-sm font-bold text-white flex items-center space-x-2">
-                                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
-                                <span>1. Missed Call Instant SMS Script</span>
-                            </h4>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                                    <span>1. Missed Call Instant SMS Script</span>
+                                </h4>
+                                <button onclick="copyToClipboard('bp-res-text-script', 'copy-sms-btn')" id="copy-sms-btn" class="text-xs text-slate-400 hover:text-white flex items-center space-x-1 hover:underline bg-white/5 px-2 py-1 rounded transition-all">
+                                    <span>Copy SMS</span>
+                                </button>
+                            </div>
                             <div class="bg-white/5 rounded-xl p-4 border border-white/5 relative">
                                 <p class="text-sm text-slate-300 italic" id="bp-res-text-script">
                                     "Loading tailored script..."
@@ -279,19 +321,963 @@
 
                         <!-- Panel 2 -->
                         <div class="space-y-2">
-                            <h4 class="text-sm font-bold text-white flex items-center space-x-2">
-                                <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-                                <span>2. AI Voice Receptionist System Prompt</span>
-                            </h4>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+                                    <span>2. AI Voice Receptionist System Prompt (Vapi.ai)</span>
+                                </h4>
+                                <button onclick="copyToClipboard('bp-res-voice-prompt', 'copy-voice-btn')" id="copy-voice-btn" class="text-xs text-slate-400 hover:text-white flex items-center space-x-1 hover:underline bg-white/5 px-2 py-1 rounded transition-all">
+                                    <span>Copy System Prompt</span>
+                                </button>
+                            </div>
                             <div class="bg-white/5 rounded-xl p-4 border border-white/5 max-h-48 overflow-y-auto">
-                                <p class="text-xs text-slate-400 font-mono whitespace-pre-line" id="bp-res-voice-prompt">
+                                <pre class="text-xs text-slate-400 font-mono whitespace-pre-wrap leading-relaxed" id="bp-res-voice-prompt">
                                     "Loading prompt templates..."
-                                </p>
+                                </pre>
                             </div>
                         </div>
 
                         <!-- Info Footer -->
                         <div class="pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-slate-500">
                             <span>Generated for <strong id="bp-res-owner" class="text-slate-300">Dr. Trivedi</strong> at <strong id="bp-res-name" class="text-slate-300">Summit Dental</strong></span>
-                            <button onclick="openBookingModal()" class="text-brand-400 hover:text-brand-300 font-bold uppercase tracking-wider flex items-center space-x-1">
-                                <span>Deploy This Script</sp
+                            <button onclick="openBookingModal('General Blueprint Integration')" class="text-brand-400 hover:text-brand-300 font-bold uppercase tracking-wider flex items-center space-x-1 self-start sm:self-auto">
+                                <span>Deploy This Script &rarr;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Architecture / Pipeline section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 relative" id="features">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-brand-400 font-extrabold">Architecture Stack</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How the Speed-to-Lead Engine Works</h2>
+                <p class="text-base text-slate-400">
+                    A fully automated, modular infrastructure utilizing pre-built snapshots, real-time webhooks, and conversational voice and text AI layer APIs.
+                </p>
+            </div>
+
+            <!-- Pipeline Diagram -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch relative">
+                <!-- Step 1 -->
+                <div class="card-glow rounded-2xl p-6 flex flex-col justify-between space-y-4 transform hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="h-10 w-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center font-bold text-lg mb-4 border border-red-500/20">1</div>
+                        <h4 class="text-base font-bold text-white">Inbound Lead Spike</h4>
+                        <p class="text-xs text-slate-400 mt-2">A prospect leaves a Facebook DM, Google Review, Web Chat submission, or triggers a missed call on a busy Saturday.</p>
+                    </div>
+                    <span class="text-[10px] text-red-400 uppercase tracking-widest font-semibold">Immediate Trigger</span>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center absolute left-[18%] top-1/2 -translate-y-1/2 text-slate-700 z-10 pointer-events-none">
+                    <svg class="h-8 w-8 animate-pulse text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="card-glow rounded-2xl p-6 flex flex-col justify-between space-y-4 transform hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="h-10 w-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center font-bold text-lg mb-4 border border-brand-500/20">2</div>
+                        <h4 class="text-base font-bold text-white">GoHighLevel Core</h4>
+                        <p class="text-xs text-slate-400 mt-2">GHL intercepts the action, creates a lead profile automatically, and launches the sub-account webhook workflow.</p>
+                    </div>
+                    <span class="text-[10px] text-brand-400 uppercase tracking-widest font-semibold">CRM Database</span>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center absolute left-[38%] top-1/2 -translate-y-1/2 text-slate-700 z-10 pointer-events-none">
+                    <svg class="h-8 w-8 animate-pulse text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="card-glow rounded-2xl p-6 flex flex-col justify-between space-y-4 transform hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="h-10 w-10 rounded-lg bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold text-lg mb-4 border border-yellow-500/20">3</div>
+                        <h4 class="text-base font-bold text-white">Make.com Engine</h4>
+                        <p class="text-xs text-slate-400 mt-2">Bridges GHL data. Formats payloads, parses intake answers, verifies calendar slots, and routes to appropriate AI instances.</p>
+                    </div>
+                    <span class="text-[10px] text-yellow-400 uppercase tracking-widest font-semibold">API Router</span>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center absolute left-[58%] top-1/2 -translate-y-1/2 text-slate-700 z-10 pointer-events-none">
+                    <svg class="h-8 w-8 animate-pulse text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="card-glow rounded-2xl p-6 flex flex-col justify-between space-y-4 transform hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="h-10 w-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-lg mb-4 border border-indigo-500/20">4</div>
+                        <h4 class="text-base font-bold text-white">Vapi.ai / OpenAI</h4>
+                        <p class="text-xs text-slate-400 mt-2">Processes conversation. Twilio BYOT voice routes calls through Vapi.ai in real-time, or OpenAI manages the back-and-forth SMS nurture.</p>
+                    </div>
+                    <span class="text-[10px] text-indigo-400 uppercase tracking-widest font-semibold">Conversational AI</span>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center absolute left-[78%] top-1/2 -translate-y-1/2 text-slate-700 z-10 pointer-events-none">
+                    <svg class="h-8 w-8 animate-pulse text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="card-glow rounded-2xl p-6 flex flex-col justify-between space-y-4 transform hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="h-10 w-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg mb-4 border border-emerald-500/20">5</div>
+                        <h4 class="text-base font-bold text-white">Booked & Confirmed</h4>
+                        <p class="text-xs text-slate-400 mt-2">The lead schedules a slot on Calendly or GHL Calendar. System fires instant reminder alerts, completing the conversion.</p>
+                    </div>
+                    <span class="text-[10px] text-emerald-400 uppercase tracking-widest font-semibold">Revenue Secured</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speed-to-Lead ROI Leak Calculator -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 relative" id="calculator">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-brand-400 font-extrabold">Value Diagnostic</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Speed-to-Lead Leak Calculator</h2>
+                <p class="text-base text-slate-400">
+                    See exactly how much revenue is slipping through your unanswered phone calls and slow form follow-ups every single year.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Sliders Panel -->
+                <div class="lg:col-span-6 card-glow rounded-3xl p-6 space-y-6">
+                    <h3 class="text-lg font-bold text-white border-b border-white/5 pb-3">Input Your Business Numbers</h3>
+                    
+                    <!-- Slider 1 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-slate-300 font-medium">Average Customer Value (LTV)</label>
+                            <span class="text-brand-400 font-extrabold" id="calc-val-ltv">$1,500</span>
+                        </div>
+                        <input type="range" id="input-ltv" min="500" max="20000" step="100" value="1500" oninput="calculateROI()" class="w-full h-2 bg-white/5 rounded-lg appearance-none cursor-pointer accent-brand-500">
+                        <div class="flex justify-between text-[10px] text-slate-500">
+                            <span>$500</span>
+                            <span>$10,000</span>
+                            <span>$20,000</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-slate-300 font-medium">Monthly Inbound Leads / Phone Calls</label>
+                            <span class="text-brand-400 font-extrabold" id="calc-val-leads">100 Leads</span>
+                        </div>
+                        <input type="range" id="input-leads" min="10" max="500" step="5" value="100" oninput="calculateROI()" class="w-full h-2 bg-white/5 rounded-lg appearance-none cursor-pointer accent-brand-500">
+                        <div class="flex justify-between text-[10px] text-slate-500">
+                            <span>10 Leads</span>
+                            <span>250 Leads</span>
+                            <span>500 Leads</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-slate-300 font-medium">Missed / Unanswered Rate</label>
+                            <span class="text-red-400 font-extrabold" id="calc-val-missed">62% (Industry Avg)</span>
+                        </div>
+                        <input type="range" id="input-missed" min="10" max="90" step="1" value="62" oninput="calculateROI()" class="w-full h-2 bg-white/5 rounded-lg appearance-none cursor-pointer accent-red-500">
+                        <div class="flex justify-between text-[10px] text-slate-500">
+                            <span>10%</span>
+                            <span>50%</span>
+                            <span>90%</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 4 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-slate-300 font-medium">Standard Closing Conversion Rate</label>
+                            <span class="text-brand-400 font-extrabold" id="calc-val-close">20%</span>
+                        </div>
+                        <input type="range" id="input-close" min="5" max="60" step="1" value="20" oninput="calculateROI()" class="w-full h-2 bg-white/5 rounded-lg appearance-none cursor-pointer accent-brand-500">
+                        <div class="flex justify-between text-[10px] text-slate-500">
+                            <span>5%</span>
+                            <span>30%</span>
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="lg:col-span-6 flex flex-col justify-between gap-6">
+                    <!-- Leak Alert Card -->
+                    <div class="card-glow rounded-3xl p-6 border-red-500/20 bg-red-950/5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-400 uppercase tracking-widest flex items-center gap-1.5">
+                                <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
+                                Current Annual Revenue Leaked
+                            </span>
+                            <p class="text-xs text-slate-400 mt-1">Valuable clients lost directly to competitors due to lag in response times.</p>
+                        </div>
+                        <div class="my-6">
+                            <span class="text-4xl sm:text-5xl font-black text-red-500 tracking-tight" id="calc-leak-amount">$223,200</span>
+                            <span class="text-sm text-slate-400 font-semibold">/ year leaked</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Based on standard studies showing 80% decrease in conversion if response takes > 5 mins.</p>
+                    </div>
+
+                    <!-- Recovered Success Card -->
+                    <div class="card-glow rounded-3xl p-6 border-emerald-500/20 bg-emerald-950/5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
+                                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                                ConvergeAI Projected Revenue Recaptured
+                            </span>
+                            <p class="text-xs text-slate-400 mt-1">Projected revenue converted with instant, automated AI receptionist response (70% capture rate).</p>
+                        </div>
+                        <div class="my-6">
+                            <span class="text-4xl sm:text-5xl font-black text-emerald-400 tracking-tight" id="calc-recovered-amount">$156,240</span>
+                            <span class="text-sm text-slate-400 font-semibold">/ year recovered</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-3 border-t border-white/5">
+                            <span class="text-slate-400">Estimated ROI Multiple:</span>
+                            <span class="text-emerald-400 font-black text-sm" id="calc-roi-multiple">52x ROI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Tiers Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 relative" id="pricing">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-brand-400 font-extrabold">Scalable Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Choose Your Growth Tier</h2>
+                <p class="text-base text-slate-400">
+                    Simple, transparent pricing designed to slip under corporate budget approval thresholds.
+                </p>
+
+                <!-- Billing Toggle -->
+                <div class="pt-4 flex items-center justify-center gap-4">
+                    <span class="text-sm text-slate-400 font-semibold" id="toggle-lbl-monthly">Monthly</span>
+                    <button onclick="toggleBillingPeriod()" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-brand-600 transition-colors duration-200 ease-in-out focus:outline-none" role="switch" aria-checked="false" id="billing-toggle">
+                        <span aria-hidden="true" class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5" id="billing-toggle-dot"></span>
+                    </button>
+                    <span class="text-sm text-slate-200 font-bold flex items-center gap-1.5" id="toggle-lbl-yearly">
+                        Annual Billing
+                        <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-extrabold border border-emerald-500/20">Save 20%</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Tier 1 -->
+                <div class="card-glow rounded-3xl p-8 flex flex-col justify-between space-y-8 relative overflow-hidden group">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Self-Service SaaS</span>
+                        <h3 class="text-2xl font-black text-white">The Automated Reactivation</h3>
+                        <p class="text-xs text-slate-400">Perfect for small businesses starting out with lead capture automation.</p>
+                        
+                        <div class="pt-4 flex items-baseline">
+                            <span class="text-4xl font-black text-white" id="t1-price">$100</span>
+                            <span class="text-sm text-slate-500 ml-2" id="t1-period">/ month</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3.5 border-t border-white/5 pt-6 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>White-Labeled Desktop Dashboard Access</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>GHL Web-Chat Widget (Custom Styled)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Standard Missed Call Text-Back System</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Standard Google Review Autopilot Campaigns</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="openBookingModal('Tier 1: Automated Reactivation')" class="w-full py-4 rounded-xl border border-white/10 hover:border-brand-500 bg-white/5 hover:bg-brand-600/10 text-white font-bold text-sm tracking-wide transition-all mt-auto group-hover:shadow-lg">
+                        Get Started Instantly
+                    </button>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="card-glow rounded-3xl p-8 flex flex-col justify-between space-y-8 relative overflow-hidden border-brand-500/30 shadow-lg shadow-brand-500/5 group scale-105">
+                    <!-- Popular Ribbon -->
+                    <div class="absolute top-0 right-0 bg-gradient-to-l from-brand-600 to-indigo-500 text-white text-[10px] uppercase tracking-wider font-extrabold px-4 py-1.5 rounded-bl-xl">
+                        Best Value
+                    </div>
+
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">SaaS + Custom Integration</span>
+                        <h3 class="text-2xl font-black text-white">The Conversational Nurturer</h3>
+                        <p class="text-xs text-slate-400">AI-driven 24/7 inbox operator trained on your custom FAQs & scheduling parameters.</p>
+                        
+                        <div class="pt-4 flex items-baseline">
+                            <span class="text-4xl font-black text-white" id="t2-price">$250</span>
+                            <span class="text-sm text-slate-500 ml-2" id="t2-period">/ month</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3.5 border-t border-white/5 pt-6 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-semibold text-white">Everything in Tier 1</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>AI Chat Assistant (SMS, GMB, Instagram DM)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Custom Prompt Synthesis (FAQ & Objections)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Dormant Database Reactivation Campaigns</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="openBookingModal('Tier 2: Conversational Nurturer')" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-500 hover:from-brand-500 hover:to-indigo-400 text-white font-bold text-sm tracking-wide transition-all mt-auto shadow-lg shadow-brand-500/20">
+                        Launch Conversational Agent
+                    </button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="card-glow rounded-3xl p-8 flex flex-col justify-between space-y-8 relative overflow-hidden group">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Done-For-You (DFY) Enterprise</span>
+                        <h3 class="text-2xl font-black text-white">The Autonomous Front-Desk</h3>
+                        <p class="text-xs text-slate-400">Enterprise-grade, human-like voice receptionist operating your phone lines 24/7/365.</p>
+                        
+                        <div class="pt-4 flex items-baseline">
+                            <span class="text-4xl font-black text-white" id="t3-price">$1,000</span>
+                            <span class="text-sm text-slate-500 ml-2" id="t3-period">/ month</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3.5 border-t border-white/5 pt-6 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-semibold text-white">Everything in Tiers 1 and 2</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Vapi.ai Autonomous Voice Agent Integration</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Twilio BYOT System (No variable text-debts)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Legacy CRM Pipeline Integrations (API Mapping)</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="openBookingModal('Tier 3: Autonomous Front-Desk')" class="w-full py-4 rounded-xl border border-indigo-500/20 hover:border-indigo-400 bg-indigo-500/5 hover:bg-indigo-600 text-white font-bold text-sm tracking-wide transition-all mt-auto group-hover:shadow-lg">
+                        Hire AI Phone Agent
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-white/5 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="h-8 w-8 rounded-lg bg-brand-600 flex items-center justify-center">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <span class="text-lg font-bold text-white">ConvergeAI</span>
+            </div>
+            <p class="text-xs text-slate-500">&copy; 2026 ConvergeAI Technologies. Internal Strategic Framework and Operational Portal. All rights reserved.</p>
+            <div class="flex space-x-6 text-xs text-slate-400">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#calculator" class="hover:text-white transition-colors">ROI Calculator</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Onboarding Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div onclick="closeBookingModal()" class="fixed inset-0 bg-dark-950/80 backdrop-blur-sm transition-opacity" aria-hidden="true"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Panel -->
+            <div class="inline-block align-bottom bg-dark-900 border border-white/10 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full p-6 sm:p-8 space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold text-white" id="modal-title-text">Secure Your Audit Demo</h3>
+                        <p class="text-xs text-slate-400 mt-1">Submit your details to automatically trigger the GHL setup workflow.</p>
+                    </div>
+                    <button onclick="closeBookingModal()" class="p-1.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <form id="booking-form" onsubmit="submitBookingForm(event)" class="space-y-4">
+                    <input type="hidden" id="form-tier-selection" value="General Inquiry">
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Full Name</label>
+                            <input type="text" id="form-name" required placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Business Name</label>
+                            <input type="text" id="form-biz-name" required placeholder="Sparkle Dental" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Email Address</label>
+                        <input type="email" id="form-email" required placeholder="john@company.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Phone Number</label>
+                        <input type="tel" id="form-phone" required placeholder="+1 (555) 000-0000" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Primary Industry</label>
+                        <select id="form-niche" class="w-full bg-dark-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            <option value="Cosmetic Clinic">Cosmetic Clinic</option>
+                            <option value="Dental Practice">Dental Practice</option>
+                            <option value="HVAC / Plumbing Repair">HVAC / Plumbing Repair</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Other High-Ticket Services">Other High-Ticket Services</option>
+                        </select>
+                    </div>
+
+                    <div id="form-success-alert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs leading-relaxed space-y-1">
+                        <span class="font-bold flex items-center gap-1.5">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Onboarding Webhook Fired!
+                        </span>
+                        <p>Lead profile allocated in GHL agency snapshot. Twilio numbers mapped and sandbox environment ready for testing.</p>
+                    </div>
+
+                    <button type="submit" id="form-submit-btn" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-brand-500/15">
+                        Submit & Trigger Webhook
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client-Side Application Scripts -->
+    <script>
+        // --- 1. Global State Parameters ---
+        let isAnnualBilling = true;
+        
+        // Niche personalities matching simulated sandbox conversations
+        const chatPersonalities = {
+            "Cosmetic Clinic / Medical Spa": {
+                title: "Aesthetic Clinic AI",
+                subtitle: "Botox & Chemical Peel Nurturer",
+                avatarColor: "bg-indigo-600",
+                welcome: "Hi! I am the medical spa receptionist for Summit Clinic. 🌸 We missed your call. I can help answer treatment details (like Botox or Chemical Peels) or book a consultation slot. What can I help you with today?",
+                faq: {
+                    whitening: "We specialize in full chemical peels ($1,500+) and Botox therapies starting from $600. Treatments are customized per patient! Would you like me to find a time for a consult?",
+                    book: "Perfect! We can get you scheduled with our senior aesthetic specialist. Would you prefer a morning or afternoon slot this Thursday?",
+                    hours: "We are open Monday to Friday from 9 AM to 7 PM, and Saturdays from 10 AM to 4 PM.",
+                    default: "That is an excellent question! Our clinical treatment plans are custom tailored. I can schedule a quick 10-minute consultation with our medical doctor to map out your plan. What days work best for you?"
+                }
+            },
+            "Dental Practice": {
+                title: "Sparkle Dental AI",
+                subtitle: "Dental Booking Receptionist",
+                avatarColor: "bg-brand-600",
+                welcome: "Hi! I'm Sparkle Dental's AI assistant. 🦷 We missed your call. I can answer treatment questions or find a booking time on our calendar. What can I do for you?",
+                faq: {
+                    whitening: "Yes, we offer professional Zoom Laser Teeth Whitening which takes roughly 60 minutes and guarantees 6-8 shades lighter! Would you like me to find a booking time?",
+                    book: "I'd be happy to book you in! We have openings this Wednesday at 10:00 AM or Thursday at 2:30 PM. Do either of those work?",
+                    hours: "Our practice is open Monday through Thursday, 8 AM to 5 PM, and Fridays from 8 AM to 1 PM.",
+                    default: "I want to make sure you get the best dental care. Let's schedule an appointment with Dr. Dhaval to discuss your needs. When is a good time to call you?"
+                }
+            },
+            "HVAC / Plumbing Repair": {
+                title: "Apex Emergency AI",
+                subtitle: "After-Hours Dispatcher",
+                avatarColor: "bg-yellow-600",
+                welcome: "Apex Heating & Plumbing Dispatch here! 🛠️ We missed your call. Is this an after-hours emergency or a standard service booking? I can dispatch a technician instantly.",
+                faq: {
+                    whitening: "We handle emergency furnace failure, pipe bursts, and drain clogs! Standard callout is $180, and we are on-site within 45 minutes.",
+                    book: "Understood. I will allocate an emergency dispatcher right now. Can I confirm your service address to secure your queue slot?",
+                    hours: "We operate 24/7/365 for emergencies. Regular service hours are 8 AM to 6 PM.",
+                    default: "I have registered your service request. To dispatch our licensed HVAC specialist immediately, let me book your triage window. Do you need a technician right away?"
+                }
+            },
+            "Real Estate Agency": {
+                title: "Vanguard Realty AI",
+                subtitle: "Zillow Lead Triage Agent",
+                avatarColor: "bg-emerald-600",
+                welcome: "Welcome to Vanguard Real Estate! 🏡 I noticed you requested information on our high-end suburban listing. I can answer property specs or book a home showing. What is your status?",
+                faq: {
+                    whitening: "That listing features 5 bedrooms, 4.5 baths, a heated swimming pool, and premium school zone access. Listed at $1.2M. Would you like a private walkthrough tour?",
+                    book: "Fabulous! Showing tours are scheduled with our senior agent. Are you currently pre-approved for financing, or paying cash?",
+                    hours: "Showings are available 7 days a week, from 9 AM to sunset.",
+                    default: "That is a gorgeous property and getting a lot of activity. Let's secure your private showing slot before it goes pending. Does this weekend work for a tour?"
+                }
+            }
+        };
+
+        // Custom blueprint prompt templates generated inside GHL sandbox
+        const blueprintData = {
+            "Cosmetic Clinic / Medical Spa": {
+                sms: "Hey there! This is Dr. Trivedi's team at [Business Name] 🌸. We missed your call as our reception staff is currently serving clients. Since speed is key, I've opened up our booking assistant for you. What treatment package or consult slot are you looking to secure today?",
+                prompt: `You are 'Aesthetic/Cosmetic AI Concierge', an elite front-desk voice specialist representing '[Business Name]'. Your principal mission is to convert inbound missed calls and web leads into scheduled clinical consultations.
+Persona parameters: Exuberant, professional, medically respectful, highly polished.
+
+Conversation Directives:
+1. Warm Greeting: Welcome the prospect back. Apologize warmly for the missed call.
+2. Value Proposition: Mention premium cosmetic treatment slots are filling up.
+3. Capture Intake: If they ask about services (Botox, chemical peels, dermal fillers), answer briefly with standard ranges (Botox: $600+, chemical peels: $1500+) and stress that exact pricing is customized during consultation.
+4. Pitch Booking: Proactively guide the conversation to a booked slot.
+5. Calendar Tool Integration: Check [GHL Calendar API] and offer two concrete options: Thursday 11 AM or Friday 2 PM.
+6. Confirmation: Confirm booking, write back contact detail payloads into GHL CRM, and trigger confirmation SMS.`
+            },
+            "Dental Practice": {
+                sms: "Hey! Apologies we missed your call at [Business Name] 🦷. We are helping another patient sparkle. How can we help you today? You can ask about our Laser Whitening package or type 'Book Slot' to schedule an appointment instantly!",
+                prompt: `You are 'Dental Care Co-Pilot', a caring and clinical voice assistant representing '[Business Name]'. Your goal is to secure dental appointments on Dr. Trivedi's calendar.
+Persona parameters: Clinical, calming, organized, highly reliable.
+
+Conversation Directives:
+1. Greet: Welcome back the prospect and note that the practice was caring for a patient when they called.
+2. Treatment Qualification: If checking teeth whitening, cleanings, or Invisalign, provide crisp, patient-friendly info.
+3. Schedule Booking: Guide them directly to secure their spot.
+4. Verify Insurance: Ask if they will be using private health insurance or self-pay.
+5. Calendar Booking: Query calendar availability. Pitch concrete slots.
+6. Finish: Capture full name, phone number, and write to GoHighLevel workflow webhook to log the booking.`
+            },
+            "HVAC / Plumbing Repair": {
+                sms: "Apex Dispatch at [Business Name] 🛠️. Sorry we missed your call—we are currently dispatching crews. Is this an emergency (burst pipe / furnace down) or a standard maintenance ticket? Respond 'EMERGENCY' to get routed instantly.",
+                prompt: `You are 'Apex Emergency Dispatcher', a highly efficient, calm, and tactical operator representing '[Business Name]'. Your primary objective is to qualify emergencies, register service addresses, and book rapid-dispatch technician windows.
+Persona parameters: Urgent, professional, authoritative, reassuring.
+
+Conversation Directives:
+1. Urgent Salutation: Instantly state that a dispatch team is on standby and ask if their call relates to an active emergency (no heat, water flooding).
+2. Gather Specs: Obtain brief description of issues and confirm the physical service address immediately.
+3. Service Fee Notice: Communicate the standard $180 service fee to avoid chargeback friction.
+4. Schedule Dispatcher: Book the nearest emergency window using Calendly router.
+5. Trigger Make.com Webhook: Instantly post service parameters to Make scenario to alert on-duty technician via GHL SMS.`
+            },
+            "Real Estate Agency": {
+                sms: "Vanguard Realty here 🏡. Sorry we missed you—our agents are currently showing custom properties. Are you looking to schedule a private walkthrough tour of our $1.2M listing, or get details? Text back to book your slot!",
+                prompt: `You are 'Vanguard Elite Guide', a luxury real estate digital assistant representing '[Business Name]'. Your main directive is to triage incoming Zillow/portal leads, qualify their financial purchase capacity, and secure high-value home showing appointments.
+Persona parameters: Sophisticated, knowledgeable, energetic, sales-focused.
+
+Conversation Directives:
+1. Premium Reception: Thank them for checking in on our active listings. Note the showing agent is currently showing a property.
+2. Property Spec Clarification: Share key amenities (5 beds, pools, school zones) and pricing expectations.
+3. Financial Triage: Ask if they are cash buyers or have active pre-approval letters in hand.
+4. Secure Showing: Book private showings on the listing agent's calendar.
+5. CRM Push: Package pre-qualification tags and sync to Salesforce/GHL profile to notify the broker.`
+            }
+        };
+
+
+        // --- 2. Live Sandbox Chat Simulator Engine ---
+        function simulateSampleText(text) {
+            document.getElementById('sandbox-user-input').value = text;
+            handleSandboxMessage(new Event('submit'));
+        }
+
+        function getActiveNiche() {
+            return document.getElementById('bp-biz-niche').value;
+        }
+
+        function updateNichePersonality() {
+            const niche = getActiveNiche();
+            const p = chatPersonalities[niche];
+            if (!p) return;
+
+            // Reset Chatbox HTML with the welcome message of the new niche
+            const chatBox = document.getElementById('sandbox-chat-box');
+            chatBox.innerHTML = `
+                <div class="flex flex-col space-y-1 max-w-[85%]">
+                    <div class="bg-brand-600/25 border border-brand-500/20 text-slate-200 text-sm p-3.5 rounded-2xl rounded-tl-none">
+                        ${p.welcome}
+                    </div>
+                    <span class="text-[10px] text-slate-500 pl-1">${p.title} &bull; Just now</span>
+                </div>
+            `;
+            
+            // Adjust the placeholder of chat input to guide users
+            const input = document.getElementById('sandbox-user-input');
+            if (niche.includes("Dental")) {
+                input.placeholder = "Type: 'Do you offer teeth whitening?'";
+            } else if (niche.includes("Cosmetic")) {
+                input.placeholder = "Type: 'Tell me about chemical peels'";
+            } else if (niche.includes("HVAC")) {
+                input.placeholder = "Type: 'My pipes are leaking! Emergency!'";
+            } else {
+                input.placeholder = "Type: 'I want to schedule a home tour'";
+            }
+        }
+
+        function handleSandboxMessage(event) {
+            if (event) event.preventDefault();
+            
+            const inputEl = document.getElementById('sandbox-user-input');
+            const userText = inputEl.value.trim();
+            if (!userText) return;
+
+            const chatBox = document.getElementById('sandbox-chat-box');
+
+            // 1. Render User Message
+            chatBox.innerHTML += `
+                <div class="flex flex-col space-y-1 max-w-[85%] ml-auto items-end">
+                    <div class="bg-white/10 border border-white/10 text-slate-200 text-sm p-3.5 rounded-2xl rounded-tr-none">
+                        ${userText}
+                    </div>
+                    <span class="text-[10px] text-slate-500 pr-1">You &bull; Just now</span>
+                </div>
+            `;
+            inputEl.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // 2. Render Typing Indicator
+            const typingId = "typing-" + Date.now();
+            chatBox.innerHTML += `
+                <div class="flex flex-col space-y-1 max-w-[85%]" id="${typingId}">
+                    <div class="bg-white/5 border border-white/5 text-slate-400 text-sm p-3 rounded-2xl rounded-tl-none flex items-center space-x-1.5">
+                        <span class="h-2 w-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 0ms"></span>
+                        <span class="h-2 w-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 150ms"></span>
+                        <span class="h-2 w-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 300ms"></span>
+                    </div>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // 3. Process Response Logic (Simulating GHL + OpenAI / Vapi webhook)
+            setTimeout(() => {
+                // Remove typing indicator
+                const typingIndicator = document.getElementById(typingId);
+                if (typingIndicator) typingIndicator.remove();
+
+                const niche = getActiveNiche();
+                const p = chatPersonalities[niche];
+                let botResponse = "";
+
+                const lowerText = userText.toLowerCase();
+                if (lowerText.includes("white") || lowerText.includes("peel") || lowerText.includes("service") || lowerText.includes("leak") || lowerText.includes("inquir") || lowerText.includes("price") || lowerText.includes("cost")) {
+                    botResponse = p.faq.whitening;
+                } else if (lowerText.includes("book") || lowerText.includes("sched") || lowerText.includes("appoint") || lowerText.includes("slot") || lowerText.includes("tour") || lowerText.includes("emergenc")) {
+                    botResponse = p.faq.book;
+                } else if (lowerText.includes("hour") || lowerText.includes("open") || lowerText.includes("time") || lowerText.includes("close")) {
+                    botResponse = p.faq.hours;
+                } else {
+                    botResponse = p.faq.default;
+                }
+
+                // Add Bot Message
+                chatBox.innerHTML += `
+                    <div class="flex flex-col space-y-1 max-w-[85%]">
+                        <div class="bg-brand-600/25 border border-brand-500/20 text-slate-200 text-sm p-3.5 rounded-2xl rounded-tl-none">
+                            ${botResponse}
+                        </div>
+                        <span class="text-[10px] text-slate-500 pl-1">${p.title} &bull; Just now</span>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+
+        function resetSandboxChat() {
+            updateNichePersonality();
+        }
+
+
+        // --- 3. Dynamic AI Script & Prompt Generator ---
+        function generateAIBlueprint() {
+            const bizName = document.getElementById('bp-biz-name').value.trim() || "Summit Clinic";
+            const userName = document.getElementById('bp-user-name').value.trim() || "Dr. Trivedi";
+            const niche = getActiveNiche();
+
+            // UI Elements
+            const spinner = document.getElementById('bp-loading-spinner');
+            const btnText = document.getElementById('bp-btn-text');
+            const genBtn = document.getElementById('bp-gen-btn');
+            const placeholderState = document.getElementById('blueprint-placeholder-state');
+            const resultState = document.getElementById('blueprint-result-state');
+
+            // Show Loading State
+            spinner.classList.remove('hidden');
+            btnText.textContent = "Analyzing Niche Friction...";
+            genBtn.disabled = true;
+
+            let steps = [
+                "Allocating GHL Snapshot...",
+                "Configuring Make.com webhooks...",
+                "Synthesizing Vapi Voice Prompts...",
+                "Complete!"
+            ];
+
+            let stepIdx = 0;
+            const stepInterval = setInterval(() => {
+                if (stepIdx < steps.length - 1) {
+                    btnText.textContent = steps[stepIdx];
+                    stepIdx++;
+                } else {
+                    clearInterval(stepInterval);
+                    
+                    // Inject Synthesized Templates
+                    const data = blueprintData[niche];
+                    const smsScript = data.sms.replace(/\[Business Name\]/g, bizName);
+                    const systemPrompt = data.prompt.replace(/\[Business Name\]/g, bizName);
+
+                    document.getElementById('bp-badge-niche').textContent = niche.toUpperCase();
+                    document.getElementById('bp-res-text-script').textContent = smsScript;
+                    document.getElementById('bp-res-voice-prompt').textContent = systemPrompt;
+                    document.getElementById('bp-res-owner').textContent = userName;
+                    document.getElementById('bp-res-name').textContent = bizName;
+
+                    // Transition Views
+                    placeholderState.classList.add('hidden');
+                    resultState.classList.remove('hidden');
+
+                    // Reset Button
+                    spinner.classList.add('hidden');
+                    btnText.textContent = "Generate My Blueprint";
+                    genBtn.disabled = false;
+                }
+            }, 550);
+        }
+
+
+        // --- 4. Interactive ROI Leak Calculator ---
+        function calculateROI() {
+            const ltv = parseFloat(document.getElementById('input-ltv').value);
+            const leads = parseFloat(document.getElementById('input-leads').value);
+            const missedRate = parseFloat(document.getElementById('input-missed').value) / 100;
+            const closeRate = parseFloat(document.getElementById('input-close').value) / 100;
+
+            // Render slider current values in UI
+            document.getElementById('calc-val-ltv').textContent = "$" + ltv.toLocaleString();
+            document.getElementById('calc-val-leads').textContent = leads + " Leads";
+            document.getElementById('calc-val-missed').textContent = Math.round(missedRate * 100) + "%";
+            document.getElementById('calc-val-close').textContent = Math.round(closeRate * 100) + "%";
+
+            // Math computations
+            // Annual Leak = Monthly Leads * Missed Rate * Close Rate * LTV * 12
+            const annualLeak = leads * missedRate * closeRate * ltv * 12;
+            // Recovered = Leak * 70% capture efficiency
+            const annualRecovered = annualLeak * 0.70;
+            // ROI Multiple based on Tier 2 system software fees ($250/mo * 12 = $3,000/yr)
+            const annualFee = 3000;
+            const roiMultiple = Math.max(1, Math.round(annualRecovered / annualFee));
+
+            // Render Output values with smooth counter increments
+            document.getElementById('calc-leak-amount').textContent = "$" + Math.round(annualLeak).toLocaleString();
+            document.getElementById('calc-recovered-amount').textContent = "$" + Math.round(annualRecovered).toLocaleString();
+            document.getElementById('calc-roi-multiple').textContent = roiMultiple + "x ROI";
+        }
+
+
+        // --- 5. Pricing Billing Toggle & Annual Calculations ---
+        function toggleBillingPeriod() {
+            isAnnualBilling = !isAnnualBilling;
+            const dot = document.getElementById('billing-toggle-dot');
+            const monthlyLbl = document.getElementById('toggle-lbl-monthly');
+            const yearlyLbl = document.getElementById('toggle-lbl-yearly');
+
+            if (isAnnualBilling) {
+                dot.classList.add('translate-x-5');
+                dot.classList.remove('translate-x-0');
+                monthlyLbl.className = "text-sm text-slate-400 font-semibold";
+                yearlyLbl.className = "text-sm text-slate-200 font-bold flex items-center gap-1.5";
+                
+                // Adjust Pricing Cards with discount
+                document.getElementById('t1-price').textContent = "$80";
+                document.getElementById('t1-period').textContent = "/ month (billed annually)";
+                document.getElementById('t2-price').textContent = "$200";
+                document.getElementById('t2-period').textContent = "/ month (billed annually)";
+                document.getElementById('t3-price').textContent = "$800";
+                document.getElementById('t3-period').textContent = "/ month (billed annually)";
+            } else {
+                dot.classList.add('translate-x-0');
+                dot.classList.remove('translate-x-5');
+                monthlyLbl.className = "text-sm text-slate-200 font-bold";
+                yearlyLbl.className = "text-sm text-slate-400 font-semibold flex items-center gap-1.5";
+
+                // Standard monthly pricing
+                document.getElementById('t1-price').textContent = "$100";
+                document.getElementById('t1-period').textContent = "/ month";
+                document.getElementById('t2-price').textContent = "$250";
+                document.getElementById('t2-period').textContent = "/ month";
+                document.getElementById('t3-price').textContent = "$1,000";
+                document.getElementById('t3-period').textContent = "/ month";
+            }
+        }
+
+
+        // --- 6. Agency Blueprint Portal Tabs ---
+        function switchAgencyTab(tabId) {
+            const tabs = ['tab-core', 'tab-gtm', 'tab-ops', 'tab-financials'];
+            const btns = ['btn-tab-core', 'btn-tab-gtm', 'btn-tab-ops', 'btn-tab-financials'];
+
+            tabs.forEach(t => {
+                const el = document.getElementById(t);
+                if (t === tabId) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            btns.forEach(b => {
+                const el = document.getElementById(b);
+                const isTarget = b === `btn-tab-${tabId.split('-')[1]}`;
+                if (isTarget) {
+                    el.className = "w-full px-6 py-5 text-left text-sm font-bold border-b border-r md:border-r-0 border-white/5 transition-all text-white bg-white/5 border-l-4 border-l-brand-500";
+                } else {
+                    el.className = "w-full px-6 py-5 text-left text-sm font-bold border-b border-r md:border-r-0 border-white/5 transition-all text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-l-transparent";
+                }
+            });
+        }
+
+
+        // --- 7. Interactive Onboarding Modals ---
+        function openBookingModal(tierName) {
+            const modal = document.getElementById('booking-modal');
+            const selectionInput = document.getElementById('form-tier-selection');
+            const titleEl = document.getElementById('modal-title-text');
+            
+            if (tierName) {
+                selectionInput.value = tierName;
+                titleEl.textContent = "Book Setup for " + tierName;
+            } else {
+                selectionInput.value = "General Inquiry";
+                titleEl.textContent = "Secure Your Audit Demo";
+            }
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            
+            // Reset form states
+            document.getElementById('booking-form').reset();
+            document.getElementById('form-success-alert').classList.add('hidden');
+            document.getElementById('form-submit-btn').classList.remove('hidden');
+        }
+
+        function submitBookingForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('form-name').value;
+            const biz = document.getElementById('form-biz-name').value;
+            const email = document.getElementById('form-email').value;
+            const phone = document.getElementById('form-phone').value;
+            const niche = document.getElementById('form-niche').value;
+            const tier = document.getElementById('form-tier-selection').value;
+
+            const submitBtn = document.getElementById('form-submit-btn');
+            const successAlert = document.getElementById('form-success-alert');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Connecting to GHL Webhook...";
+
+            // Simulate server network lag for realism, then trigger success alerts
+            setTimeout(() => {
+                submitBtn.classList.add('hidden');
+                successAlert.classList.remove('hidden');
+                
+                // Keep modal open so they can read GHL pipeline trigger success details
+            }, 1200);
+        }
+
+
+        // --- 8. Helper: Copy to Clipboard ---
+        function copyToClipboard(elementId, buttonId) {
+            const text = document.getElementById(elementId).innerText || document.getElementById(elementId).textContent;
+            const btn = document.getElementById(buttonId);
+            const originalHTML = btn.innerHTML;
+
+            navigator.clipboard.writeText(text).then(() => {
+                btn.innerHTML = `
+                    <svg class="h-3.5 w-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-emerald-400">Copied!</span>
+                `;
+                btn.classList.add('bg-emerald-500/10', 'border-emerald-500/20');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('bg-emerald-500/10', 'border-emerald-500/20');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+
+        // --- 9. Initialization ---
+        window.addEventListener('DOMContentLoaded', () => {
+            // Pre-calculate baseline values
+            calculateROI();
+            
+            // Set up default chat persona
+            updateNichePersonality();
+        });
+    </script>
+</body>
+</html>
+
